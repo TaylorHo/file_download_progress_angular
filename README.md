@@ -13,8 +13,10 @@ docker-compose up
 
 ## Project Structure
 
+```
 / (root folder)
 │   docker-compose.yml
 │
 └───server (Spring Boot backend)
 └───app (Angular frontend)
+```
