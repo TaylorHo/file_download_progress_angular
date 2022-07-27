@@ -42,6 +42,10 @@ export class AppComponent {
     );
   }
 
+  generateLink(filename: string) {
+    return `http://localhost:8080/file/download/${filename}`
+  }
+
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
     switch(httpEvent.type) {
 

@@ -9,18 +9,8 @@
 
       <!-- Download and Upload Progress Bar -->
       <div *ngIf="fileStatus.status==='progress'">
-        <div class="progress">
-          <div
-            [style.width.%]="100"
-            class="progress-bar progress-bar-animated bg-info"
-            role="progressbar"
-            [aria-valuenow]="fileStatus.percent"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >
-              {{ fileStatus.requestType }} {{ fileStatus.percent }} 
-            </div>
-        </div>
+        <progress class="progress" [value]="fileStatus.percent" max="100">
+        </progress>
       </div>
       
       
@@ -41,7 +31,7 @@
       <div *ngIf="filenames?.length > 0" class="js-upload-finished">
         <h3>Processed files</h3>
         <div *ngFor="let filename of filenames" class="list-group">
-          <a (click)="onDownloadFile(filename)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+          <a [href]="generateLink(filename)" class="list-group-item list-group-item-success" style="cursor: pointer;">
             {{ filename }}            
             <a class="alert-success float-right">Download</a>
           </a><br>
